@@ -1,17 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-// import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+// import Button from 'react-bootstrap/Button';
 import {Button,Container,Row,Col} from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button>Test</Button>
-      </header>
-    </div>
+    <Container fluid className ="Body">
+      <Row>
+        <Col>1 of 1</Col>
+      </Row>
+    </Container>
   );
 }
 
