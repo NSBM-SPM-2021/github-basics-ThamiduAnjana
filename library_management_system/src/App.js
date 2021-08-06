@@ -8,7 +8,7 @@ function App() {
   return (
     <Container fluid className ="Body">
       <Row>
-        <Col>1 of 1</Col>
+        <Col><h1>Hello World</h1></Col>
       </Row>
     </Container>
   );
