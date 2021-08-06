@@ -1,4 +1,9 @@
 Body{
   background-image: url(images/BG.jpg);
 }
-
+.left_margin{
+  margin-left: 25%;
+}
+.top_padding{
+ padding-top: 3%; 
+}
