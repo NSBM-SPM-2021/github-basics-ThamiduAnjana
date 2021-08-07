@@ -20,9 +20,12 @@ Body{
   width: 150px;
   height: 50px;
 }
-.top_padding_3{
+.top_padding_1{
  padding-top: 1%; 
 }
+.top_padding_5{
+  padding-top: 5%; 
+ }
 .main_box{
   border-width: 2px;
   border: darkslategray;

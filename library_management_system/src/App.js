@@ -8,10 +8,10 @@ function App() {
   return (
     <Container fluid className="Body">
       <Row>
-        <Col className="text_align_center top_padding_3"><h1>Library Management System..</h1></Col>
+        <Col className="text_align_center top_padding_5"><h1>Library Management System..</h1></Col>
       </Row>
       <Row>
-        <Col lg="8" className="top_padding_3 align_center">
+        <Col lg="8" className="top_padding_1 align_center">
           <Card style={{ width: '100%',padding:'15px'}}>
             <Form>
               <Card.Body>
