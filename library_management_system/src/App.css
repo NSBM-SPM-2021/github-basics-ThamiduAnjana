@@ -1,9 +1,22 @@
 Body{
   background-image: url(images/BG.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
 }
-.left_margin{
-  margin-left: 25%;
+.align_center{
+  margin-left: auto;
+  margin-right: auto;
 }
-.top_padding{
+.text_align_center{
+  text-align: center;
+}
+.content_align_center{
+  align-content: center;
+}
+.top_padding_3{
  padding-top: 3%; 
+}
+.main_box{
+  border-width: 2px;
+  border: darkslategray;
 }
