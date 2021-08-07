@@ -10,11 +10,18 @@ Body{
 .text_align_center{
   text-align: center;
 }
-.content_align_center{
-  align-content: center;
+.buttom_align_right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+.button_style{
+  width: 150px;
+  height: 50px;
 }
 .top_padding_3{
- padding-top: 3%; 
+ padding-top: 1%; 
 }
 .main_box{
   border-width: 2px;
