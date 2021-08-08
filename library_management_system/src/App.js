@@ -50,13 +50,13 @@ function App() {
                     <Col>
                       <Form.Group controlId="publishdate">
                         <Form.Label>Publish Date :</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Publish Date"></Form.Control>
+                        <Form.Control type="date" placeholder="Enter Publish Date"></Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                     <Form.Group controlId="addingdate">
                         <Form.Label>Adding Date :</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Adding Date"></Form.Control>
+                        <Form.Control type="date" placeholder="Enter Adding Date"></Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
