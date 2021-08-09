@@ -1,9 +1,9 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
+import Axios from 'axios';
 
 function App() {
 
@@ -17,6 +17,23 @@ function App() {
   const [txt_price, setprice] = useState("");
   const [txt_source, setsource] = useState("");
   const [txt_remarks, setremarks] = useState("");
+
+  const submitBook =()=>{
+    Axios.post("http://localhost:3002//api/insert",{
+      bookid: txt_bookid,
+      isbnno:txt_isbnno,
+      booktitle:txt_booktitle,
+      author:txt_author,
+      publishdate:txt_publishdate,
+      addingdate:txt_addingdate,
+      pages:txt_pages,
+      price:txt_price,
+      source:txt_source,
+      remarks:txt_remarks
+    }).then(()=>{
+      alert("Successful insert..!");
+    });
+  };
 
   return (
     <Container fluid className="Body">
@@ -35,13 +52,21 @@ function App() {
                     <Col>
                       <Form.Group controlId="bookid">
                         <Form.Label>Book ID :</Form.Label>
-                        <Form.Control type="text" name="txt_bookid" placeholder="Enter Book ID"></Form.Control>
+                        <Form.Control type="text" name="txt_bookid" placeholder="Enter Book ID"
+                          onChange={(e) => {
+                            setbookid(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="isbnno">
                         <Form.Label>ISBN NO :</Form.Label>
-                        <Form.Control type="text" name="txt_isbnno" placeholder="Enter ISBN NO"></Form.Control>
+                        <Form.Control type="text" name="txt_isbnno" placeholder="Enter ISBN NO"
+                          onChange={(e) => {
+                            setisbnno(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -49,13 +74,21 @@ function App() {
                     <Col>
                       <Form.Group controlId="booktitle">
                         <Form.Label>Book Title :</Form.Label>
-                        <Form.Control type="text" name="txt_booktitle" placeholder="Enter Book Title"></Form.Control>
+                        <Form.Control type="text" name="txt_booktitle" placeholder="Enter Book Title"
+                          onChange={(e) => {
+                            setbooktitle(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="author">
                         <Form.Label>Author :</Form.Label>
-                        <Form.Control type="text" name="txt_author" placeholder="Enter Author"></Form.Control>
+                        <Form.Control type="text" name="txt_author" placeholder="Enter Author"
+                          onChange={(e) => {
+                            setauthor(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -63,13 +96,21 @@ function App() {
                     <Col>
                       <Form.Group controlId="publishdate">
                         <Form.Label>Publish Date :</Form.Label>
-                        <Form.Control type="date" name="txt_publishdate" placeholder="Enter Publish Date"></Form.Control>
+                        <Form.Control type="date" name="txt_publishdate" placeholder="Enter Publish Date"
+                          onChange={(e) => {
+                            setpublishdate(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="addingdate">
                         <Form.Label>Adding Date :</Form.Label>
-                        <Form.Control type="date" name="txt_addingdate" placeholder="Enter Adding Date"></Form.Control>
+                        <Form.Control type="date" name="txt_addingdate" placeholder="Enter Adding Date"
+                          onChange={(e) => {
+                            setaddingdate(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -77,13 +118,21 @@ function App() {
                     <Col>
                       <Form.Group controlId="pages">
                         <Form.Label>Pages :</Form.Label>
-                        <Form.Control type="text" name="txt_pages" placeholder="Enter Pages"></Form.Control>
+                        <Form.Control type="text" name="txt_pages" placeholder="Enter Pages"
+                          onChange={(e) => {
+                            setpages(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="price">
                         <Form.Label>Price :</Form.Label>
-                        <Form.Control type="text" name="txt_price" placeholder="Enter Price"></Form.Control>
+                        <Form.Control type="text" name="txt_price" placeholder="Enter Price"
+                          onChange={(e) => {
+                            setprice(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
@@ -91,19 +140,29 @@ function App() {
                     <Col>
                       <Form.Group controlId="source">
                         <Form.Label>Source :</Form.Label>
-                        <Form.Control as="textarea" name="txt_source" rows={3} placeholder="Enter Source"></Form.Control>
+                        <Form.Control as="textarea" name="txt_source" rows={3} placeholder="Enter Source"
+                          onChange={(e) => {
+                            setsource(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="remark">
                         <Form.Label>Remark :</Form.Label>
-                        <Form.Control as="textarea" name="txt_remarks" rows={3} placeholder="Enter Remark"></Form.Control>
+                        <Form.Control as="textarea" name="txt_remarks" rows={3} placeholder="Enter Remark"
+                          onChange={(e) => {
+                            setremarks(e.target.value)
+                          }}>
+                        </Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
                 </Card.Text>
                 <div className="buttom_align_right">
-                  <Button variant="primary" name="btn_save" className="button_style">Save Book</Button>
+                  <Button variant="primary" name="btn_save" className="button_style" 
+                  onClick={submitBook}
+                  >Save Book</Button>
                 </div>
               </Card.Body>
             </Form>
