@@ -78,13 +78,13 @@ function App() {
                     <Col>
                       <Form.Group controlId="source">
                         <Form.Label>Source :</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Source"></Form.Control>
+                        <Form.Control as="textarea" rows={3} placeholder="Enter Source"></Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                     <Form.Group controlId="remark">
                         <Form.Label>Remark :</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Remark"></Form.Control>
+                        <Form.Control as="textarea" rows={3} placeholder="Enter Remark"></Form.Control>
                       </Form.Group>
                     </Col>
                   </Row>
