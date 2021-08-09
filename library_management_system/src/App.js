@@ -19,7 +19,7 @@ function App() {
   const [txt_remarks, setremarks] = useState("");
 
   const submitBook =()=>{
-    Axios.post("http://localhost:3002//api/insert",{
+    Axios.post("http://localhost:3002/api/insert",{
       bookid: txt_bookid,
       isbnno:txt_isbnno,
       booktitle:txt_booktitle,
