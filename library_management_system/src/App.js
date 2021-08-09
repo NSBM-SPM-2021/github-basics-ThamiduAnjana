@@ -1,8 +1,8 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
-import { useState } from 'react';
+import { Container, Row, Col, Card, Button, Form, Alert } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 import Axios from 'axios';
 
 function App() {
@@ -18,22 +18,24 @@ function App() {
   const [txt_source, setsource] = useState("");
   const [txt_remarks, setremarks] = useState("");
 
-  const submitBook =()=>{
-    Axios.post("http://localhost:3002/api/insert",{
+
+  const submitBook = () => {
+    Axios.post("http://localhost:3002/api/insert", {
       bookid: txt_bookid,
-      isbnno:txt_isbnno,
-      booktitle:txt_booktitle,
-      author:txt_author,
-      publishdate:txt_publishdate,
-      addingdate:txt_addingdate,
-      pages:txt_pages,
-      price:txt_price,
-      source:txt_source,
-      remarks:txt_remarks
-    }).then(()=>{
-      alert("Successful insert..!");
+      isbnno: txt_isbnno,
+      booktitle: txt_booktitle,
+      author: txt_author,
+      publishdate: txt_publishdate,
+      addingdate: txt_addingdate,
+      pages: txt_pages,
+      price: txt_price,
+      source: txt_source,
+      remarks: txt_remarks
     });
+    alert("Successful insert..!");
   };
+
+
 
   return (
     <Container fluid className="Body">
@@ -160,8 +162,8 @@ function App() {
                   </Row>
                 </Card.Text>
                 <div className="buttom_align_right">
-                  <Button variant="primary" name="btn_save" className="button_style" 
-                  onClick={submitBook}
+                  <Button variant="primary" name="btn_save" className="button_style"
+                    onClick={submitBook}
                   >Save Book</Button>
                 </div>
               </Card.Body>
