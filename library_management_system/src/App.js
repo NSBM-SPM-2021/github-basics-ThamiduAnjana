@@ -1,8 +1,7 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { GrUpdate } from "react-icons/gr";
-import { MdDeleteForever } from "react-icons/md";
+import { MdUpdate, MdDeleteForever } from "react-icons/md";
 import { Container, Row, Col, Card, Button, Form, Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
@@ -211,7 +210,7 @@ function App() {
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>
-                        <Button variant="success"><GrUpdate/></Button>
+                        <Button variant="success"><MdUpdate/></Button>
                         &nbsp;
                         <Button variant="danger"><MdDeleteForever/></Button>
                       </td>
