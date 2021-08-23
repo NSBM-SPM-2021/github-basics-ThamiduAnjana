@@ -209,38 +209,42 @@ function App() {
                       <th>Actions</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>
-                        <OverlayTrigger
-                          placement="right"
-                          delay={{ show: 250, hide: 400 }}
-                          overlay={UpdateBTNTooltip}
-                        >
-                          <Button variant="success"><MdUpdate /></Button>
-                        </OverlayTrigger>
-                        &nbsp;
-                        <OverlayTrigger
-                          placement="right"
-                          delay={{ show: 250, hide: 400 }}
-                          overlay={DeleteBTNTooltip}
-                        >
-                          <Button variant="danger"><MdDeleteForever /></Button>
-                        </OverlayTrigger>
-                        
-                      </td>
-                    </tr>
-                  </tbody>
+                  {bookList.map((val) => {
+                    return (
+                      <tbody>
+                        <tr>
+                          <td>{val.Book_ID}</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>1</td>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>
+                            <OverlayTrigger
+                              placement="right"
+                              delay={{ show: 250, hide: 400 }}
+                              overlay={UpdateBTNTooltip}
+                            >
+                              <Button variant="success"><MdUpdate /></Button>
+                            </OverlayTrigger>
+                            &nbsp;
+                            <OverlayTrigger
+                              placement="right"
+                              delay={{ show: 250, hide: 400 }}
+                              overlay={DeleteBTNTooltip}
+                            >
+                              <Button variant="danger"><MdDeleteForever /></Button>
+                            </OverlayTrigger>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
                 </Table>
 
               </Card.Body>
