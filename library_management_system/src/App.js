@@ -221,7 +221,7 @@ function App() {
                           <td>{val.Book_Title}</td>
                           <td>{val.Author}</td>
                           <td>{dateFormat(val.Publish_Date,"yyyy-mm-dd")}</td>
-                          <td>{val.Adding_Date}</td>
+                          <td>{dateFormat(val.Adding_Date,"yyyy-mm-dd")}</td>
                           <td>{val.Pages}</td>
                           <td>Rs.{val.Price}</td>
                           <td>{val.Source}</td>
