@@ -193,6 +193,7 @@ function App() {
                       <th>Price</th>
                       <th>Source</th>
                       <th>Remarks</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -206,6 +207,7 @@ function App() {
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>Otto</td>
+                      <td>@mdo</td>
                       <td>@mdo</td>
                     </tr>
                   </tbody>
