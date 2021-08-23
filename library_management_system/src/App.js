@@ -2,7 +2,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MdUpdate, MdDeleteForever } from "react-icons/md";
-import { Container, Row, Col, Card, Button, Form, Table } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 
@@ -20,6 +20,18 @@ function App() {
   const [txt_remarks, setremarks] = useState("");
 
   const [bookList, setBookList] = useState([]);
+
+  const UpdateBTNTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Update
+    </Tooltip>
+  );
+
+  const DeleteBTNTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Update
+    </Tooltip>
+  );
 
   useEffect(() => {
     Axios.get("http://localhost:3002/api/get").then((response) => {
@@ -210,9 +222,22 @@ function App() {
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>
-                        <Button variant="success"><MdUpdate/></Button>
+                        <OverlayTrigger
+                          placement="right"
+                          delay={{ show: 250, hide: 400 }}
+                          overlay={UpdateBTNTooltip}
+                        >
+                          <Button variant="success"><MdUpdate /></Button>
+                        </OverlayTrigger>
                         &nbsp;
-                        <Button variant="danger"><MdDeleteForever/></Button>
+                        <OverlayTrigger
+                          placement="right"
+                          delay={{ show: 250, hide: 400 }}
+                          overlay={DeleteBTNTooltip}
+                        >
+                          <Button variant="danger"><MdDeleteForever /></Button>
+                        </OverlayTrigger>
+                        
                       </td>
                     </tr>
                   </tbody>
