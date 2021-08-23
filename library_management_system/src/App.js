@@ -165,7 +165,7 @@ function App() {
                   <Button variant="primary" name="btn_save" className="button_style"
                     onClick={submitBook}
                   >Save Book</Button>
-                  &nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <Button type="reset" variant="danger" name="btn_reset" className="button_style">Clear</Button>
                 </div>
               </Card.Body>
