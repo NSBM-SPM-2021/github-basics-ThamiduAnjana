@@ -210,7 +210,7 @@ function App() {
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>
-                        <Button variant="success">Success</Button>
+                        <Button variant="success"><GrUpdate/></Button>
                         &nbsp;
                         <Button variant="danger"><GrUpdate/></Button>
                       </td>
