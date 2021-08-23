@@ -26,6 +26,9 @@ Body{
 .top_padding_5{
   padding-top: 5%; 
  }
+ .bottom_padding_1{
+  padding-bottom: 1%; 
+ }
 .main_box{
   border-width: 2px;
   border: darkslategray;
