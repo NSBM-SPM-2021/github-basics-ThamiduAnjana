@@ -187,8 +187,8 @@ function App() {
                       <th>ISBN NO</th>
                       <th>Book Title</th>
                       <th>Author</th>
-                      <th>Publish_Date</th>
-                      <th>Adding_Date</th>
+                      <th>Publish Date</th>
+                      <th>Adding Date</th>
                       <th>Pages</th>
                       <th>Price</th>
                       <th>Source</th>
