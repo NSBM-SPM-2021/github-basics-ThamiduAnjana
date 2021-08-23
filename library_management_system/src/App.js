@@ -55,6 +55,7 @@ function App() {
       remarks: txt_remarks
     });
     alert("Successful insert..!");
+    window.location.reload(true);
   };
 
 
