@@ -219,10 +219,10 @@ function App() {
                           <td>{val.Author}</td>
                           <td>{val.Publish_Date}</td>
                           <td>{val.Adding_Date}</td>
-                          <td>{val.Book_ID}</td>
-                          <td>{val.Book_ID}</td>
-                          <td>{val.Book_ID}</td>
-                          <td>{val.Book_ID}</td>
+                          <td>{val.Pages}</td>
+                          <td>{val.Price}</td>
+                          <td>{val.Source}</td>
+                          <td>{val.Remarks}</td>
                           <td>
                             <OverlayTrigger
                               placement="right"
