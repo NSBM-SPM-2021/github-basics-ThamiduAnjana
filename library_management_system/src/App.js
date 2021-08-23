@@ -214,15 +214,15 @@ function App() {
                       <tbody>
                         <tr>
                           <td>{val.Book_ID}</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <td>{val.ISBN_NO}</td>
+                          <td>{val.Book_Title}</td>
+                          <td>{val.Author}</td>
+                          <td>{val.Publish_Date}</td>
+                          <td>{val.Adding_Date}</td>
+                          <td>{val.Book_ID}</td>
+                          <td>{val.Book_ID}</td>
+                          <td>{val.Book_ID}</td>
+                          <td>{val.Book_ID}</td>
                           <td>
                             <OverlayTrigger
                               placement="right"
