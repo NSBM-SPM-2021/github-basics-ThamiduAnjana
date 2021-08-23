@@ -1,6 +1,7 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { hot } from 'react-hot-loader/root';
 import { MdUpdate, MdDeleteForever } from "react-icons/md";
 import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
@@ -256,4 +257,4 @@ function App() {
   );
 }
 
-export default App;
+export default hot(App);
