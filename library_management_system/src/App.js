@@ -18,6 +18,14 @@ function App() {
   const [txt_source, setsource] = useState("");
   const [txt_remarks, setremarks] = useState("");
 
+  const [bookList, setBookList] = useState([]);
+
+  useEffect(() =>{
+    Axios.get("http://localhost:3002/api/get").then((response)=>{
+      setBookList(response.data);
+    });
+  },[]);
+
 
   const submitBook = () => {
     Axios.post("http://localhost:3002/api/insert", {
