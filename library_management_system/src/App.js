@@ -178,6 +178,7 @@ function App() {
                 </div>
                 <br/>
                 <Card.Title className="text_align_center">Books Details</Card.Title>
+                <hr></hr>
               </Card.Body>
             </Form>
           </Card>
