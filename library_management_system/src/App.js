@@ -1,6 +1,7 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as Icon from 'react-bootstrap-icons';
 import { Container, Row, Col, Card, Button, Form, Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
