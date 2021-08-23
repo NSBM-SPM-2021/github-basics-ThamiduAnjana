@@ -208,7 +208,11 @@ function App() {
                       <td>@mdo</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td><Button variant="success">Success</Button>&nbsp;</td>
+                      <td>
+                        <Button variant="success">Success</Button>
+                        &nbsp;
+                        <Button variant="danger">Danger</Button>
+                      </td>
                     </tr>
                   </tbody>
                 </Table>
