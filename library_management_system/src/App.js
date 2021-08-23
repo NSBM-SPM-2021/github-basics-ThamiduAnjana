@@ -184,15 +184,27 @@ function App() {
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>ISBN NO</th>
+                      <th>Book Title</th>
+                      <th>Author</th>
+                      <th>Publish_Date</th>
+                      <th>Adding_Date</th>
+                      <th>Pages</th>
+                      <th>Price</th>
+                      <th>Source</th>
+                      <th>Remarks</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1</td>
                       <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>1</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
                       <td>Otto</td>
                       <td>@mdo</td>
                     </tr>
