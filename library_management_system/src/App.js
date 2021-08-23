@@ -2,6 +2,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { hot } from 'react-hot-loader/root';
+import dateFormat from 'dateformat';
 import { MdUpdate, MdDeleteForever } from "react-icons/md";
 import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
@@ -219,10 +220,10 @@ function App() {
                           <td>{val.ISBN_NO}</td>
                           <td>{val.Book_Title}</td>
                           <td>{val.Author}</td>
-                          <td>{val.Publish_Date}</td>
+                          <td>{dateFormat(val.Publish_Date,"yyyy-mm-dd")}</td>
                           <td>{val.Adding_Date}</td>
                           <td>{val.Pages}</td>
-                          <td>{val.Price}</td>
+                          <td>Rs.{val.Price}</td>
                           <td>{val.Source}</td>
                           <td>{val.Remarks}</td>
                           <td>
