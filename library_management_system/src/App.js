@@ -29,7 +29,7 @@ function App() {
 
   const DeleteBTNTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      Update
+      Delete
     </Tooltip>
   );
 
