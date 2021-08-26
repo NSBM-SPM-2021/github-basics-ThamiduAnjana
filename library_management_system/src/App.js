@@ -192,11 +192,11 @@ function App() {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <Button type="reset" variant="danger" name="btn_reset" className="button_style">Clear</Button>
                 </div>
-                {/*  
+                
                 <br />
                 <Card.Title className="text_align_center">Books Details</Card.Title>
                 <hr></hr>
-
+                
                 <Table striped bordered hover size="sm">
                   <thead>
                     <tr>
@@ -250,7 +250,6 @@ function App() {
                     );
                   })}
                 </Table>
-                  */}
               </Card.Body>
             </Form>
           </Card>
