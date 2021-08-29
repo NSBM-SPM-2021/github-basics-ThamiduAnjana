@@ -55,12 +55,14 @@ function App() {
       source: txt_source,
       remarks: txt_remarks
     });
-    alert("Successful insert..!");
+    alert("Successfully Inserted..!");
     window.location.reload(true);
   };
 
   const deleteBook = (deletebookid) =>{
     Axios.delete(`http://localhost:3002/api/delete/${deletebookid}`);
+    alert("Successfully Deleted..!");
+    window.location.reload(true);
   };
 
   return (
