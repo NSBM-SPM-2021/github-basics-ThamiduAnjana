@@ -59,7 +59,9 @@ function App() {
     window.location.reload(true);
   };
 
-
+  const deleteBook = (deletebookid) =>{
+    Axios.delete(`http://localhost:3002/api/delete/${deletebookid}`);
+  };
 
   return (
     <Container fluid className="Body">
@@ -241,7 +243,7 @@ function App() {
                               delay={{ show: 250, hide: 400 }}
                               overlay={DeleteBTNTooltip}
                             >
-                              <Button variant="danger"><MdDeleteForever /></Button>
+                              <Button variant="danger" onClick ={()=>{deleteBook(val.Book_ID)}}><MdDeleteForever /></Button>
                             </OverlayTrigger>
 
                           </td>
