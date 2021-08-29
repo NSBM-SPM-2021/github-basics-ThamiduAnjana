@@ -41,6 +41,15 @@ app.post("/api/insert", (req,res) => {
     });
 });
 
+app.delete('/api/delete/:Book_ID',(req, res) => {
+    const deletebookid = req.params.Book_ID;
+    const sqlDelete = "DELETE FROM books_tb WHERE Book_ID = ?";
+
+    db.query(sqlDelete, deletebookid, (err, result) => {
+        if (err) console.log(err);
+    });
+});
+
 app.listen(3002, () => {
     console.log("running on port 3002");
 });
