@@ -72,16 +72,32 @@ function App() {
   const [InputList, setInput] = useState([]);
 
   const handleClose = () => setShow(false);
-  const handleShow = (inputBID, inputISBN, inputBookTitle, inputAuthor) => {
+  const handleShow = (
+    inputBID,
+    inputISBN,
+    inputBookTitle,
+    inputAuthor,
+    inputPublishDate,
+    inputAddingDate,
+    inputPages,
+    inputPrice,
+    inputSource,
+    inputRemarks
+  ) => {
     setShow(true);
     setInput({
       inputBID,
       inputISBN,
       inputBookTitle,
-      inputAuthor
+      inputAuthor,
+      inputPublishDate,
+      inputAddingDate,
+      inputPages,
+      inputPrice,
+      inputSource,
+      inputRemarks
     });
   };
-
 
   return (
     <Container fluid className="Body">
@@ -263,11 +279,22 @@ function App() {
                               delay={{ show: 250, hide: 400 }}
                               overlay={UpdateBTNTooltip}
                             >
-                              <Button variant="success" 
-                              onClick={() => { 
-                                handleShow(val.Book_ID, val.ISBN_NO, val.Book_Title, val.Author) 
+                              <Button variant="success"
+                                onClick={() => {
+                                  handleShow(
+                                    val.Book_ID,
+                                    val.ISBN_NO,
+                                    val.Book_Title,
+                                    val.Author,
+                                    val.Publish_Date,
+                                    val.Adding_Date,
+                                    val.Pages,
+                                    val.Price,
+                                    val.Source,
+                                    val.Remarks
+                                  )
                                 }}>
-                              <MdUpdate /></Button>
+                                <MdUpdate /></Button>
                             </OverlayTrigger>
 
                           </td>
@@ -303,21 +330,21 @@ function App() {
                   </Col>
                 </Row>
                 <Row>
-                    <Col>
-                      <Form.Group controlId="booktitle">
-                        <Form.Label>Book Title :</Form.Label>
-                        <Form.Control type="text" name="txt_booktitle" defaultValue={InputList.inputBookTitle}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group controlId="author">
-                        <Form.Label>Author :</Form.Label>
-                        <Form.Control type="text" name="txt_author" defaultValue={InputList.inputAuthor}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
+                  <Col>
+                    <Form.Group controlId="booktitle">
+                      <Form.Label>Book Title :</Form.Label>
+                      <Form.Control type="text" name="txt_booktitle" defaultValue={InputList.inputBookTitle}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="author">
+                      <Form.Label>Author :</Form.Label>
+                      <Form.Control type="text" name="txt_author" defaultValue={InputList.inputAuthor}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                </Row>
               </Form>
             </Modal.Body>
             <Modal.Footer>
