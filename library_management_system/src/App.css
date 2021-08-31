@@ -33,3 +33,6 @@ Body{
   border-width: 2px;
   border: darkslategray;
 }
+.button_center{
+  justify-content: center;
+}
