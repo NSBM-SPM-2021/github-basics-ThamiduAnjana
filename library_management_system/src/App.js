@@ -72,7 +72,7 @@ function App() {
   const [InputList, setInput] = useState([]);
 
   const handleClose = () => setShow(false);
-  const handleShow  = (inputBID, inputISBN) => {
+  const handleShow = (inputBID, inputISBN) => {
     setShow(true);
     setInput({
       inputBID,
@@ -206,17 +206,17 @@ function App() {
                   </Row>
                 </Card.Text>
                 <div className="buttom_align_right">
+                  <Button type="reset" variant="danger" name="btn_reset" className="button_style">Clear</Button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <Button variant="primary" name="btn_save" className="button_style"
                     onClick={submitBook}
                   >Save Book</Button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <Button type="reset" variant="danger" name="btn_reset" className="button_style">Clear</Button>
                 </div>
-                
+
                 <br />
                 <Card.Title className="text_align_center">Books Details</Card.Title>
                 <hr></hr>
-                
+
                 <Table striped bordered hover size="sm">
                   <thead>
                     <tr>
@@ -241,8 +241,8 @@ function App() {
                           <td>{val.ISBN_NO}</td>
                           <td>{val.Book_Title}</td>
                           <td>{val.Author}</td>
-                          <td>{dateFormat(val.Publish_Date,"yyyy-mm-dd")}</td>
-                          <td>{dateFormat(val.Adding_Date,"yyyy-mm-dd")}</td>
+                          <td>{dateFormat(val.Publish_Date, "yyyy-mm-dd")}</td>
+                          <td>{dateFormat(val.Adding_Date, "yyyy-mm-dd")}</td>
                           <td>{val.Pages}</td>
                           <td>Rs.{val.Price}</td>
                           <td>{val.Source}</td>
@@ -251,17 +251,17 @@ function App() {
                             <OverlayTrigger
                               placement="right"
                               delay={{ show: 250, hide: 400 }}
-                              overlay={UpdateBTNTooltip}
+                              overlay={DeleteBTNTooltip}
                             >
-                              <Button variant="success" onClick={() => {handleShow(val.Book_ID, val.ISBN_NO)}}><MdUpdate /></Button>
+                              <Button variant="danger" onClick={() => { deleteBook(val.Book_ID) }}><MdDeleteForever /></Button>
                             </OverlayTrigger>
                             &nbsp;
                             <OverlayTrigger
                               placement="right"
                               delay={{ show: 250, hide: 400 }}
-                              overlay={DeleteBTNTooltip}
+                              overlay={UpdateBTNTooltip}
                             >
-                              <Button variant="danger" onClick ={()=>{deleteBook(val.Book_ID)}}><MdDeleteForever /></Button>
+                              <Button variant="success" onClick={() => { handleShow(val.Book_ID, val.ISBN_NO) }}><MdUpdate /></Button>
                             </OverlayTrigger>
 
                           </td>
@@ -270,35 +270,49 @@ function App() {
                     );
                   })}
                 </Table>
-
-                {/* Modal For Update Books */}
-                <Modal size="" show={show} onHide={handleClose} dismissible>
-                  <Modal.Header >{/*closeButton*/}
-                    <Modal.Title>Modal heading</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <h2>Book ID : {InputList.inputBID}</h2>
-                    <h2>Book ID : {InputList.inputISBN}</h2>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                      Save Changes
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-
               </Card.Body>
             </Form>
           </Card>
+          {/* Modal For Update Books */}
+          <Modal size="lg" show={show} onHide={handleClose}>
+            <Modal.Header >{/*closeButton*/}
+              <Modal.Title>Update Book Details</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Row>
+                  <Col>
+                    <Form.Group controlId="bookid">
+                      <Form.Label>Book ID :</Form.Label>
+                      <Form.Control type="text" name="txt_bookid" defaultValue={InputList.inputBID}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="isbnno">
+                      <Form.Label>ISBN NO :</Form.Label>
+                      <Form.Control type="text" name="txt_isbnno" defaultValue={InputList.inputISBN}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                </Row>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="danger" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Col>
       </Row>
     </Container>
 
   );
-  
+
 }
 
 export default hot(App);
