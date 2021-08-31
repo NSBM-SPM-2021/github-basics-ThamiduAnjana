@@ -349,14 +349,14 @@ function App() {
                     <Col>
                       <Form.Group controlId="publishdate">
                         <Form.Label>Publish Date :</Form.Label>
-                        <Form.Control type="date" name="txt_publishdate" defaultValue={InputList.inputPublishDate}>
+                        <Form.Control type="date" name="txt_publishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}>
                         </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="addingdate">
                         <Form.Label>Adding Date :</Form.Label>
-                        <Form.Control type="date" name="txt_addingdate" defaultValue={InputList.inputAddingDate}>
+                        <Form.Control type="date" name="txt_addingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}>
                         </Form.Control>
                       </Form.Group>
                     </Col>
