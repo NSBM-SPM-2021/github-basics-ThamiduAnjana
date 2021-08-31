@@ -345,6 +345,22 @@ function App() {
                     </Form.Group>
                   </Col>
                 </Row>
+                <Row>
+                    <Col>
+                      <Form.Group controlId="publishdate">
+                        <Form.Label>Publish Date :</Form.Label>
+                        <Form.Control type="date" name="txt_publishdate" defaultValue={InputList.inputPublishDate}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col>
+                      <Form.Group controlId="addingdate">
+                        <Form.Label>Adding Date :</Form.Label>
+                        <Form.Control type="date" name="txt_addingdate" defaultValue={InputList.inputAddingDate}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
               </Form>
             </Modal.Body>
             <Modal.Footer>
