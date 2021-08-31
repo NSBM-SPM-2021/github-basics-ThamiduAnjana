@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { hot } from 'react-hot-loader/root';
 import dateFormat from 'dateformat';
 import { MdUpdate, MdDeleteForever } from "react-icons/md";
-import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 
@@ -22,6 +22,13 @@ function App() {
   const [txt_remarks, setremarks] = useState("");
 
   const [bookList, setBookList] = useState([]);
+
+  //Modal Variables
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const UpdateBTNTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
@@ -59,7 +66,7 @@ function App() {
     window.location.reload(true);
   };
 
-  const deleteBook = (deletebookid) =>{
+  const deleteBook = (deletebookid) => {
     Axios.delete(`http://localhost:3002/api/delete/${deletebookid}`);
     alert("Successfully Deleted..!");
     window.location.reload(true);
@@ -237,7 +244,7 @@ function App() {
                               delay={{ show: 250, hide: 400 }}
                               overlay={UpdateBTNTooltip}
                             >
-                              <Button variant="success"><MdUpdate /></Button>
+                              <Button variant="success" onClick={handleShow}><MdUpdate /></Button>
                             </OverlayTrigger>
                             &nbsp;
                             <OverlayTrigger
@@ -254,12 +261,32 @@ function App() {
                     );
                   })}
                 </Table>
+
+                {/* Modal For Update Books */}
+                <Modal show={show} onHide={handleClose} dismissible>
+                  <Modal.Header >{/*closeButton */}
+                    <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+
               </Card.Body>
             </Form>
           </Card>
         </Col>
       </Row>
     </Container>
+
+    
+
   );
 }
 
