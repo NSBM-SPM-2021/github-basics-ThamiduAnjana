@@ -346,28 +346,29 @@ function App() {
                   </Col>
                 </Row>
                 <Row>
-                    <Col>
-                      <Form.Group controlId="publishdate">
-                        <Form.Label>Publish Date :</Form.Label>
-                        <Form.Control type="date" name="txt_publishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group controlId="addingdate">
-                        <Form.Label>Adding Date :</Form.Label>
-                        <Form.Control type="date" name="txt_addingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
+                  <Col>
+                    <Form.Group controlId="publishdate">
+                      <Form.Label>Publish Date :</Form.Label>
+                      <Form.Control type="date" name="txt_publishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="addingdate">
+                      <Form.Label>Adding Date :</Form.Label>
+                      <Form.Control type="date" name="txt_addingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                </Row>
               </Form>
             </Modal.Body>
-            <Modal.Footer>
-              <Button variant="danger" onClick={handleClose}>
+            <Modal.Footer className="button_center">
+              <Button variant="danger" className="button_style" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose}>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <Button variant="primary" className="button_style" onClick={handleClose}>
                 Save Changes
               </Button>
             </Modal.Footer>
