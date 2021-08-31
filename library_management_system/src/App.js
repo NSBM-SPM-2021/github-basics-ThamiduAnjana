@@ -316,8 +316,8 @@ function App() {
                 <Row>
                   <Col>
                     <Form.Group controlId="bookid">
-                      <Form.Label>Book ID :</Form.Label>
-                      <Form.Control type="text" name="txt_bookid" defaultValue={InputList.inputBID}>
+                      <Form.Label>*Book ID :</Form.Label>
+                      <Form.Control type="text" name="txt_bookid" value={InputList.inputBID}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
