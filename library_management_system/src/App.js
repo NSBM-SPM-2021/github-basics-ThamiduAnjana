@@ -72,11 +72,13 @@ function App() {
   const [InputList, setInput] = useState([]);
 
   const handleClose = () => setShow(false);
-  const handleShow = (inputBID, inputISBN) => {
+  const handleShow = (inputBID, inputISBN, inputBookTitle, inputAuthor) => {
     setShow(true);
     setInput({
       inputBID,
-      inputISBN
+      inputISBN,
+      inputBookTitle,
+      inputAuthor
     });
   };
 
@@ -261,7 +263,11 @@ function App() {
                               delay={{ show: 250, hide: 400 }}
                               overlay={UpdateBTNTooltip}
                             >
-                              <Button variant="success" onClick={() => { handleShow(val.Book_ID, val.ISBN_NO) }}><MdUpdate /></Button>
+                              <Button variant="success" 
+                              onClick={() => { 
+                                handleShow(val.Book_ID, val.ISBN_NO, val.Book_Title, val.Author) 
+                                }}>
+                              <MdUpdate /></Button>
                             </OverlayTrigger>
 
                           </td>
@@ -296,6 +302,22 @@ function App() {
                     </Form.Group>
                   </Col>
                 </Row>
+                <Row>
+                    <Col>
+                      <Form.Group controlId="booktitle">
+                        <Form.Label>Book Title :</Form.Label>
+                        <Form.Control type="text" name="txt_booktitle" defaultValue={InputList.inputBookTitle}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col>
+                      <Form.Group controlId="author">
+                        <Form.Label>Author :</Form.Label>
+                        <Form.Control type="text" name="txt_author" defaultValue={InputList.inputAuthor}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
               </Form>
             </Modal.Body>
             <Modal.Footer>
