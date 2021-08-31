@@ -23,13 +23,6 @@ function App() {
 
   const [bookList, setBookList] = useState([]);
 
-  //Modal Variables
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const UpdateBTNTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Update
@@ -71,6 +64,22 @@ function App() {
     alert("Successfully Deleted..!");
     window.location.reload(true);
   };
+
+  //Modal Variables
+
+  const [show, setShow] = useState(false);
+
+  const [InputList, setInput] = useState([]);
+
+  const handleClose = () => setShow(false);
+  const handleShow  = (inputBID, inputISBN) => {
+    setShow(true);
+    setInput({
+      inputBID,
+      inputISBN
+    });
+  };
+
 
   return (
     <Container fluid className="Body">
@@ -244,7 +253,7 @@ function App() {
                               delay={{ show: 250, hide: 400 }}
                               overlay={UpdateBTNTooltip}
                             >
-                              <Button variant="success" onClick={handleShow}><MdUpdate /></Button>
+                              <Button variant="success" onClick={() => {handleShow(val.Book_ID, val.ISBN_NO)}}><MdUpdate /></Button>
                             </OverlayTrigger>
                             &nbsp;
                             <OverlayTrigger
@@ -263,11 +272,14 @@ function App() {
                 </Table>
 
                 {/* Modal For Update Books */}
-                <Modal show={show} onHide={handleClose} dismissible>
-                  <Modal.Header >{/*closeButton */}
+                <Modal size="" show={show} onHide={handleClose} dismissible>
+                  <Modal.Header >{/*closeButton*/}
                     <Modal.Title>Modal heading</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                  <Modal.Body>
+                    <h2>Book ID : {InputList.inputBID}</h2>
+                    <h2>Book ID : {InputList.inputISBN}</h2>
+                  </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                       Close
@@ -285,9 +297,8 @@ function App() {
       </Row>
     </Container>
 
-    
-
   );
+  
 }
 
 export default hot(App);
