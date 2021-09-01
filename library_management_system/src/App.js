@@ -379,6 +379,22 @@ function App() {
                       </Form.Group>
                     </Col>
                   </Row>
+                  <Row>
+                    <Col>
+                      <Form.Group controlId="source">
+                        <Form.Label>Source :</Form.Label>
+                        <Form.Control as="textarea" name="txt_source" rows={3} defaultValue={InputList.inputSource}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col>
+                      <Form.Group controlId="remark">
+                        <Form.Label>Remark :</Form.Label>
+                        <Form.Control as="textarea" name="txt_remarks" rows={3} defaultValue={InputList.inputRemarks}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
               </Form>
             </Modal.Body>
             <Modal.Footer className="button_center">
