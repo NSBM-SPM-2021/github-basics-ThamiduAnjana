@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { hot } from 'react-hot-loader/root';
 import dateFormat from 'dateformat';
 import { MdUpdate, MdDeleteForever } from "react-icons/md";
+import { GiWhiteBook,GiBookshelf,GiSave } from "react-icons/gi";
+import { AiOutlineClear,AiFillCloseSquare } from "react-icons/ai";
 import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
@@ -102,7 +104,7 @@ function App() {
   return (
     <Container fluid className="Body">
       <Row>
-        <Col className="text_align_center top_padding_1"><h1>Library Management System..</h1></Col>
+        <Col className="text_align_center top_padding_1"><h1><GiBookshelf size="75px"/>Library Management System..</h1></Col>
       </Row>
       <Row>
         <Col lg="8" className="top_padding_1 bottom_padding_1 align_center">
@@ -224,11 +226,11 @@ function App() {
                   </Row>
                 </Card.Text>
                 <div className="buttom_align_right">
-                  <Button type="reset" variant="danger" name="btn_reset" className="button_style">Clear</Button>
+                  <Button type="reset" variant="danger" name="btn_reset" className="button_style"><AiOutlineClear/> Clear</Button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <Button variant="primary" name="btn_save" className="button_style"
                     onClick={submitBook}
-                  >Save Book</Button>
+                  ><GiSave/> Save Book</Button>
                 </div>
 
                 <br />
@@ -309,7 +311,7 @@ function App() {
           {/* Modal For Update Books */}
           <Modal size="lg" show={show} onHide={handleClose}>
             <Modal.Header >{/*closeButton*/}
-              <Modal.Title>Update Book Details</Modal.Title>
+              <Modal.Title><GiWhiteBook size="45px"/> Update Book Name : {InputList.inputBookTitle}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form>
@@ -361,15 +363,31 @@ function App() {
                     </Form.Group>
                   </Col>
                 </Row>
+                <Row>
+                    <Col>
+                      <Form.Group controlId="pages">
+                        <Form.Label>Pages :</Form.Label>
+                        <Form.Control type="text" name="txt_pages" defaultValue={InputList.inputPages}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col>
+                      <Form.Group controlId="price">
+                        <Form.Label>Price :</Form.Label>
+                        <Form.Control type="text" name="txt_price" defaultValue={InputList.inputPrice}>
+                        </Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
               </Form>
             </Modal.Body>
             <Modal.Footer className="button_center">
               <Button variant="danger" className="button_style" onClick={handleClose}>
-                Close
+              <AiFillCloseSquare/> Close
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <Button variant="primary" className="button_style" onClick={handleClose}>
-                Save Changes
+              <GiSave/> Save Changes
               </Button>
             </Modal.Footer>
           </Modal>
