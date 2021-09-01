@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 import Axios from 'axios';
 
 function App() {
-
+  //insert book details variable
   const [txt_bookid, setbookid] = useState("");
   const [txt_isbnno, setisbnno] = useState("");
   const [txt_booktitle, setbooktitle] = useState("");
@@ -22,28 +22,41 @@ function App() {
   const [txt_price, setprice] = useState("");
   const [txt_source, setsource] = useState("");
   const [txt_remarks, setremarks] = useState("");
-
+  //update book details variable
+  const [txt_updatebookid, setupdatebookid] = useState("");
+  const [txt_updateisbnno, setupdateisbnno] = useState("");
+  const [txt_updatebooktitle, setupdatebooktitle] = useState("");
+  const [txt_updateauthor, setupdateauthor] = useState("");
+  const [txt_updatepublishdate, setupdatepublishdate] = useState("");
+  const [txt_updateaddingdate, setupdateaddingdate] = useState("");
+  const [txt_updatepages, setupdatepages] = useState("");
+  const [txt_updateprice, setupdateprice] = useState("");
+  const [txt_updatesource, setupdatesource] = useState("");
+  const [txt_updateremarks, setupdateremarks] = useState("");
+  //view bokk details list
   const [bookList, setBookList] = useState([]);
-
+  //update button tooltip
   const UpdateBTNTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Update
     </Tooltip>
   );
 
+  //delete button tooltip
   const DeleteBTNTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Delete
     </Tooltip>
   );
 
+  //setbooklist function
   useEffect(() => {
     Axios.get("http://localhost:3002/api/get").then((response) => {
       setBookList(response.data);
     });
   }, []);
 
-
+  //insert book details function
   const submitBook = () => {
     Axios.post("http://localhost:3002/api/insert", {
       bookid: txt_bookid,
@@ -61,19 +74,38 @@ function App() {
     window.location.reload(true);
   };
 
+  //delete book details function
   const deleteBook = (deletebookid) => {
     Axios.delete(`http://localhost:3002/api/delete/${deletebookid}`);
     alert("Successfully Deleted..!");
     window.location.reload(true);
   };
 
-  //Modal Variables
-
+  //update book details function
+  /*const updateBook =  () => {
+    Axios.update("http://localhost:3002/api/update",{
+      updatebookid: txt_updatebookid,
+      updateisbnno: txt_updateisbnno,
+      updatebooktitle: txt_updatebooktitle,
+      updateauthor: txt_updateauthor,
+      updatepublishdate: txt_updatepublishdate,
+      updateaddingdate: txt_updateaddingdate,
+      updatepages: txt_updatepages,
+      updateprice: txt_updateprice,
+      updatesource: txt_updatesource,
+      updateremarks: txt_updateremarks
+    });
+    alert("Successfully updated..!");
+    window.location.reload(true);
+  };
+*/
+  //Modal showing function
   const [show, setShow] = useState(false);
-
+  //modal setinput data list
   const [InputList, setInput] = useState([]);
-
+  //modal hide function
   const handleClose = () => setShow(false);
+  //modal input set and show function
   const handleShow = (
     inputBID,
     inputISBN,
