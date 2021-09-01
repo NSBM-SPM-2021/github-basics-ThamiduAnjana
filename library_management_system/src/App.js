@@ -81,18 +81,18 @@ function App() {
   };
 
   //update book details function
-  const updateBook = (updatebookid, updateisbnno) => {
+  const updateBook = (Pupdatebookid, Pupdateisbnno,Pupdatebooktitle,Pupdateauthor,Pupdatepublishdate,Pupdateaddingdate,Pupdatepages,Pupdateprice,Pupdatesource,Pupdateremarks) => {
     Axios.put("http://localhost:3002/api/update", {
-      updatebookid: updatebookid,
-      updateisbnno: (txt_updateisbnno ? txt_updateisbnno : updateisbnno),
-      updatebooktitle: txt_updatebooktitle,
-      updateauthor: txt_updateauthor,
-      updatepublishdate: txt_updatepublishdate,
-      updateaddingdate: txt_updateaddingdate,
-      updatepages: txt_updatepages,
-      updateprice: txt_updateprice,
-      updatesource: txt_updatesource,
-      updateremarks: txt_updateremarks
+      updatebookid: Pupdatebookid,
+      updateisbnno: (txt_updateisbnno ? txt_updateisbnno : Pupdateisbnno),
+      updatebooktitle: (txt_updatebooktitle ? txt_updatebooktitle : Pupdatebooktitle),
+      updateauthor: (txt_updateauthor ? txt_updateauthor : Pupdateauthor),
+      updatepublishdate: (txt_updatepublishdate ? txt_updatepublishdate: Pupdatepublishdate),
+      updateaddingdate: (txt_updateaddingdate ? txt_updateaddingdate : Pupdateaddingdate),
+      updatepages: (txt_updatepages ? txt_updatepages : Pupdatepages),
+      updateprice: (txt_updateprice ? txt_updateprice : Pupdateprice),
+      updatesource: (txt_updatesource ? txt_updatesource : Pupdatesource),
+      updateremarks: (txt_updateremarks ? txt_updateremarks : Pupdateremarks)
     });
     alert("Successfully updated..!");
     window.location.reload(true);
@@ -350,7 +350,7 @@ function App() {
                   <Col>
                     <Form.Group controlId="bookid">
                       <Form.Label>*Book ID :</Form.Label>
-                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID}>
+                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID} disabled>
                       </Form.Control>
                     </Form.Group>
                   </Col>
