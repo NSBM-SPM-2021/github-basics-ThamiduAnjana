@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql");
-
+//Database Connection
 const db = mysql.createPool({
     host: "localhost",
     user: "root",
@@ -14,14 +14,14 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
-
+//View Book Details
 app.get("/api/get", (req,res) =>{
     const sqlSelect = "SELECT * FROM books_tb";
     db.query(sqlSelect, (err, result) => {
         res.send(result);
     });
 });
-
+//Insert Book Details
 app.post("/api/insert", (req,res) => {
 
     const bookid = req.body.bookid;
@@ -40,7 +40,7 @@ app.post("/api/insert", (req,res) => {
         console.log(result);
     });
 });
-
+//Delete Book Details
 app.delete('/api/delete/:Book_ID',(req, res) => {
     const deletebookid = req.params.Book_ID;
     const sqlDelete = "DELETE FROM books_tb WHERE Book_ID = ?";
@@ -49,7 +49,25 @@ app.delete('/api/delete/:Book_ID',(req, res) => {
         if (err) console.log(err);
     });
 });
+//Update Book Details
+app.put("/api/update",(req,res) => {
+    const updatebookid = req.body.updatebookid;
+    const updateisbnno = req.body.updateisbnno;
+    const updatebooktitle = req.body.updatebooktitle;
+    const updateauthor = req.body.updateauthor;
+    const updatepublishdate = req.body.updatepublishdate;
+    const updateaddingdate = req.body.updateaddingdate;
+    const updatepages = req.body.updatepages;
+    const updateprice = req.body.updateprice;
+    const updatesource = req.body.updatesource;
+    const updateremarks = req.body.updateremarks;
 
+    const sqlUpdate = "UPDATE books_tb SET ISBN_NO = ?,Book_Title = ?,Author = ?,Publish_Date = ?,Adding_Date = ?,Pages = ?,Price = ?,Source = ?,Remarks = ? WHERE Book_ID = ?";
+    db.query(sqlUpdate, [updateisbnno,updatebooktitle,updateauthor,updatepublishdate,updateaddingdate,updatepages,updateprice,updatesource,updateremarks,updatebookid],(err, result) => {
+        console.log(result);
+    });
+});
+//Server
 app.listen(3002, () => {
     console.log("running on port 3002");
 });
