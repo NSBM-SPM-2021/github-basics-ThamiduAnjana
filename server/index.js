@@ -62,8 +62,9 @@ app.put("/api/update",(req,res) => {
     const updatesource = req.body.updatesource;
     const updateremarks = req.body.updateremarks;
 
-    const sqlUpdate = "UPDATE books_tb SET ISBN_NO = ?,Book_Title = ?,Author = ?,Publish_Date = ?,Adding_Date = ?,Pages = ?,Price = ?,Source = ?,Remarks = ? WHERE Book_ID = ?";
+    const sqlUpdate = "UPDATE SET books_tb ISBN_NO = ?,Book_Title = ?,Author = ?,Publish_Date = ?,Adding_Date = ?,Pages = ?,Price = ?,Source = ?,Remarks = ? WHERE Book_ID = ?";
     db.query(sqlUpdate, [updateisbnno,updatebooktitle,updateauthor,updatepublishdate,updateaddingdate,updatepages,updateprice,updatesource,updateremarks,updatebookid],(err, result) => {
+        if (err) console.log(err);
         console.log(result);
     });
 });

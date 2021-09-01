@@ -23,7 +23,6 @@ function App() {
   const [txt_source, setsource] = useState("");
   const [txt_remarks, setremarks] = useState("");
   //update book details variable
-  const [txt_updatebookid, setupdatebookid] = useState("");
   const [txt_updateisbnno, setupdateisbnno] = useState("");
   const [txt_updatebooktitle, setupdatebooktitle] = useState("");
   const [txt_updateauthor, setupdateauthor] = useState("");
@@ -82,9 +81,9 @@ function App() {
   };
 
   //update book details function
-  const updateBook = () => {
+  const updateBook = (updatebookid) => {
     Axios.put("http://localhost:3002/api/update", {
-      updatebookid: txt_updatebookid,
+      updatebookid: updatebookid,
       updateisbnno: txt_updateisbnno,
       updatebooktitle: txt_updatebooktitle,
       updateauthor: txt_updateauthor,
@@ -351,10 +350,7 @@ function App() {
                   <Col>
                     <Form.Group controlId="bookid">
                       <Form.Label>*Book ID :</Form.Label>
-                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID}
-                        onChange={(e) => {
-                          setupdatebookid(e.target.value)
-                        }}>
+                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -439,10 +435,10 @@ function App() {
                   <Col>
                     <Form.Group controlId="source">
                       <Form.Label>Source :</Form.Label>
-                      <Form.Control as="textarea" name="txt_updatesource" rows={3} defaultValue={InputList.inputSource}>
+                      <Form.Control as="textarea" name="txt_updatesource" rows={3} defaultValue={InputList.inputSource}
                         onChange={(e) => {
                           setupdatesource(e.target.value)
-                        }}
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -464,7 +460,7 @@ function App() {
                 <AiFillCloseSquare /> Close
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button variant="primary" className="button_style" onClick={updateBook}>
+              <Button variant="primary" className="button_style" onClick={() => {updateBook(InputList.inputBID)}}>
                 <GiSave /> Save Changes
               </Button>
             </Modal.Footer>
