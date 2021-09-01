@@ -81,10 +81,10 @@ function App() {
   };
 
   //update book details function
-  const updateBook = (updatebookid) => {
+  const updateBook = (updatebookid,updateisbnno) => {
     Axios.put("http://localhost:3002/api/update", {
       updatebookid: updatebookid,
-      updateisbnno: txt_updateisbnno,
+      updateisbnno: (txt_updateisbnno ? txt_updateisbnno : updateisbnno),
       updatebooktitle: txt_updatebooktitle,
       updateauthor: txt_updateauthor,
       updatepublishdate: txt_updatepublishdate,
@@ -292,8 +292,8 @@ function App() {
                           <td>{val.ISBN_NO}</td>
                           <td>{val.Book_Title}</td>
                           <td>{val.Author}</td>
-                          <td>{dateFormat(val.Publish_Date, "yyyy-mm-dd")}</td>
-                          <td>{dateFormat(val.Adding_Date, "yyyy-mm-dd")}</td>
+                          <td>{dateFormat(val.Publish_Date, "mm/dd/yyyy")}</td>
+                          <td>{dateFormat(val.Adding_Date, "mm/dd/yyyy")}</td>
                           <td>{val.Pages}</td>
                           <td>Rs.{val.Price}</td>
                           <td>{val.Source}</td>
@@ -460,7 +460,7 @@ function App() {
                 <AiFillCloseSquare /> Close
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button variant="primary" className="button_style" onClick={() => {updateBook(InputList.inputBID)}}>
+              <Button variant="primary" className="button_style" onClick={() => {updateBook(InputList.inputBID,InputList.inputISBN)}}>
                 <GiSave /> Save Changes
               </Button>
             </Modal.Footer>
