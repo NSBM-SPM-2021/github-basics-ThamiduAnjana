@@ -135,7 +135,7 @@ function App() {
   return (
     <Container fluid className="Body">
       <Row>
-        <Col className="text_align_center top_padding_1"><h1><GiBookshelf size="75px" />Library Management System..</h1></Col>
+        <Col className="text_align_center top_padding_1"><h1><GiBookshelf size="60px" />Library Management System..</h1></Col>
       </Row>
       <Row>
         <Col lg="8" className="top_padding_1 bottom_padding_1 align_center">
