@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { hot } from 'react-hot-loader/root';
 import dateFormat from 'dateformat';
 import { MdUpdate, MdDeleteForever } from "react-icons/md";
-import { GiWhiteBook,GiBookshelf,GiSave } from "react-icons/gi";
-import { AiOutlineClear,AiFillCloseSquare } from "react-icons/ai";
+import { GiWhiteBook, GiBookshelf, GiSave } from "react-icons/gi";
+import { AiOutlineClear, AiFillCloseSquare } from "react-icons/ai";
 import { Container, Row, Col, Card, Button, Form, Table, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
@@ -82,8 +82,8 @@ function App() {
   };
 
   //update book details function
-  const updateBook =  () => {
-    Axios.update("http://localhost:3002/api/update",{
+  const updateBook = () => {
+    Axios.put("http://localhost:3002/api/update", {
       updatebookid: txt_updatebookid,
       updateisbnno: txt_updateisbnno,
       updatebooktitle: txt_updatebooktitle,
@@ -136,7 +136,7 @@ function App() {
   return (
     <Container fluid className="Body">
       <Row>
-        <Col className="text_align_center top_padding_1"><h1><GiBookshelf size="75px"/>Library Management System..</h1></Col>
+        <Col className="text_align_center top_padding_1"><h1><GiBookshelf size="75px" />Library Management System..</h1></Col>
       </Row>
       <Row>
         <Col lg="8" className="top_padding_1 bottom_padding_1 align_center">
@@ -258,11 +258,11 @@ function App() {
                   </Row>
                 </Card.Text>
                 <div className="buttom_align_right">
-                  <Button type="reset" variant="danger" name="btn_reset" className="button_style"><AiOutlineClear/> Clear</Button>
+                  <Button type="reset" variant="danger" name="btn_reset" className="button_style"><AiOutlineClear /> Clear</Button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <Button variant="primary" name="btn_save" className="button_style"
                     onClick={submitBook}
-                  ><GiSave/> Save Book</Button>
+                  ><GiSave /> Save Book</Button>
                 </div>
 
                 <br />
@@ -343,7 +343,7 @@ function App() {
           {/* Modal For Update Books */}
           <Modal size="lg" show={show} onHide={handleClose}>
             <Modal.Header >{/*closeButton*/}
-              <Modal.Title><GiWhiteBook size="45px"/> Update Book Name : {InputList.inputBookTitle}</Modal.Title>
+              <Modal.Title><GiWhiteBook size="45px" /> Update Book Name : {InputList.inputBookTitle}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form>
@@ -351,14 +351,20 @@ function App() {
                   <Col>
                     <Form.Group controlId="bookid">
                       <Form.Label>*Book ID :</Form.Label>
-                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID}>
+                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID}
+                        onChange={(e) => {
+                          setupdatebookid(e.target.value)
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="isbnno">
                       <Form.Label>ISBN NO :</Form.Label>
-                      <Form.Control type="text" name="txt_updateisbnno" defaultValue={InputList.inputISBN}>
+                      <Form.Control type="text" name="txt_updateisbnno" defaultValue={InputList.inputISBN}
+                        onChange={(e) => {
+                          setupdateisbnno(e.target.value)
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -367,14 +373,20 @@ function App() {
                   <Col>
                     <Form.Group controlId="booktitle">
                       <Form.Label>Book Title :</Form.Label>
-                      <Form.Control type="text" name="txt_updatebooktitle" defaultValue={InputList.inputBookTitle}>
+                      <Form.Control type="text" name="txt_updatebooktitle" defaultValue={InputList.inputBookTitle}
+                        onChange={(e) => {
+                          setupdatebooktitle(e.target.value)
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="author">
                       <Form.Label>Author :</Form.Label>
-                      <Form.Control type="text" name="txt_updateauthor" defaultValue={InputList.inputAuthor}>
+                      <Form.Control type="text" name="txt_updateauthor" defaultValue={InputList.inputAuthor}
+                        onChange={(e) => {
+                          setupdateauthor(e.target.value)
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -383,59 +395,77 @@ function App() {
                   <Col>
                     <Form.Group controlId="publishdate">
                       <Form.Label>Publish Date :</Form.Label>
-                      <Form.Control type="date" name="txt_updatepublishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}>
+                      <Form.Control type="date" name="txt_updatepublishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}
+                        onChange={(e) => {
+                          setupdatepublishdate(e.target.value)
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="addingdate">
                       <Form.Label>Adding Date :</Form.Label>
-                      <Form.Control type="date" name="txt_updateaddingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}>
+                      <Form.Control type="date" name="txt_updateaddingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}
+                        onChange={(e) => {
+                          setupdateaddingdate(e.target.value)
+                        }}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                 </Row>
                 <Row>
-                    <Col>
-                      <Form.Group controlId="pages">
-                        <Form.Label>Pages :</Form.Label>
-                        <Form.Control type="text" name="txt_updatepages" defaultValue={InputList.inputPages}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group controlId="price">
-                        <Form.Label>Price :</Form.Label>
-                        <Form.Control type="text" name="txt_updateprice" defaultValue={InputList.inputPrice}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Group controlId="source">
-                        <Form.Label>Source :</Form.Label>
-                        <Form.Control as="textarea" name="txt_updatesource" rows={3} defaultValue={InputList.inputSource}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Form.Group controlId="remark">
-                        <Form.Label>Remark :</Form.Label>
-                        <Form.Control as="textarea" name="txt_updateremarks" rows={3} defaultValue={InputList.inputRemarks}>
-                        </Form.Control>
-                      </Form.Group>
-                    </Col>
-                  </Row>
+                  <Col>
+                    <Form.Group controlId="pages">
+                      <Form.Label>Pages :</Form.Label>
+                      <Form.Control type="text" name="txt_updatepages" defaultValue={InputList.inputPages}
+                        onChange={(e) => {
+                          setupdatepages(e.target.value)
+                        }}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="price">
+                      <Form.Label>Price :</Form.Label>
+                      <Form.Control type="text" name="txt_updateprice" defaultValue={InputList.inputPrice}
+                        onChange={(e) => {
+                          setupdateprice(e.target.value)
+                        }}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Group controlId="source">
+                      <Form.Label>Source :</Form.Label>
+                      <Form.Control as="textarea" name="txt_updatesource" rows={3} defaultValue={InputList.inputSource}>
+                        onChange={(e) => {
+                          setupdatesource(e.target.value)
+                        }}
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                  <Col>
+                    <Form.Group controlId="remark">
+                      <Form.Label>Remark :</Form.Label>
+                      <Form.Control as="textarea" name="txt_updateremarks" rows={3} defaultValue={InputList.inputRemarks}
+                        onChange={(e) => {
+                          setupdateremarks(e.target.value)
+                        }}>
+                      </Form.Control>
+                    </Form.Group>
+                  </Col>
+                </Row>
               </Form>
             </Modal.Body>
             <Modal.Footer className="button_center">
               <Button variant="danger" className="button_style" onClick={handleClose}>
-              <AiFillCloseSquare/> Close
+                <AiFillCloseSquare /> Close
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button variant="primary" className="button_style" onClick={handleClose}>
-              <GiSave/> Save Changes
+              <Button variant="primary" className="button_style" onClick={updateBook}>
+                <GiSave /> Save Changes
               </Button>
             </Modal.Footer>
           </Modal>
