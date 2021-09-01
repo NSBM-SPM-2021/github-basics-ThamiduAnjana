@@ -319,14 +319,14 @@ function App() {
                   <Col>
                     <Form.Group controlId="bookid">
                       <Form.Label>*Book ID :</Form.Label>
-                      <Form.Control type="text" name="txt_bookid" value={InputList.inputBID}>
+                      <Form.Control type="text" name="txt_updatebookid" value={InputList.inputBID}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="isbnno">
                       <Form.Label>ISBN NO :</Form.Label>
-                      <Form.Control type="text" name="txt_isbnno" defaultValue={InputList.inputISBN}>
+                      <Form.Control type="text" name="txt_updateisbnno" defaultValue={InputList.inputISBN}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -335,14 +335,14 @@ function App() {
                   <Col>
                     <Form.Group controlId="booktitle">
                       <Form.Label>Book Title :</Form.Label>
-                      <Form.Control type="text" name="txt_booktitle" defaultValue={InputList.inputBookTitle}>
+                      <Form.Control type="text" name="txt_updatebooktitle" defaultValue={InputList.inputBookTitle}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="author">
                       <Form.Label>Author :</Form.Label>
-                      <Form.Control type="text" name="txt_author" defaultValue={InputList.inputAuthor}>
+                      <Form.Control type="text" name="txt_updateauthor" defaultValue={InputList.inputAuthor}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -351,14 +351,14 @@ function App() {
                   <Col>
                     <Form.Group controlId="publishdate">
                       <Form.Label>Publish Date :</Form.Label>
-                      <Form.Control type="date" name="txt_publishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}>
+                      <Form.Control type="date" name="txt_updatepublishdate" defaultValue={dateFormat(InputList.inputPublishDate, "yyyy-mm-dd")}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col>
                     <Form.Group controlId="addingdate">
                       <Form.Label>Adding Date :</Form.Label>
-                      <Form.Control type="date" name="txt_addingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}>
+                      <Form.Control type="date" name="txt_updateaddingdate" defaultValue={dateFormat(InputList.inputAddingDate, "yyyy-mm-dd")}>
                       </Form.Control>
                     </Form.Group>
                   </Col>
@@ -367,14 +367,14 @@ function App() {
                     <Col>
                       <Form.Group controlId="pages">
                         <Form.Label>Pages :</Form.Label>
-                        <Form.Control type="text" name="txt_pages" defaultValue={InputList.inputPages}>
+                        <Form.Control type="text" name="txt_updatepages" defaultValue={InputList.inputPages}>
                         </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="price">
                         <Form.Label>Price :</Form.Label>
-                        <Form.Control type="text" name="txt_price" defaultValue={InputList.inputPrice}>
+                        <Form.Control type="text" name="txt_updateprice" defaultValue={InputList.inputPrice}>
                         </Form.Control>
                       </Form.Group>
                     </Col>
@@ -383,14 +383,14 @@ function App() {
                     <Col>
                       <Form.Group controlId="source">
                         <Form.Label>Source :</Form.Label>
-                        <Form.Control as="textarea" name="txt_source" rows={3} defaultValue={InputList.inputSource}>
+                        <Form.Control as="textarea" name="txt_updatesource" rows={3} defaultValue={InputList.inputSource}>
                         </Form.Control>
                       </Form.Group>
                     </Col>
                     <Col>
                       <Form.Group controlId="remark">
                         <Form.Label>Remark :</Form.Label>
-                        <Form.Control as="textarea" name="txt_remarks" rows={3} defaultValue={InputList.inputRemarks}>
+                        <Form.Control as="textarea" name="txt_updateremarks" rows={3} defaultValue={InputList.inputRemarks}>
                         </Form.Control>
                       </Form.Group>
                     </Col>
