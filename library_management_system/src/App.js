@@ -81,7 +81,7 @@ function App() {
   };
 
   //update book details function
-  const updateBook = (updatebookid,updateisbnno) => {
+  const updateBook = (updatebookid, updateisbnno) => {
     Axios.put("http://localhost:3002/api/update", {
       updatebookid: updatebookid,
       updateisbnno: (txt_updateisbnno ? txt_updateisbnno : updateisbnno),
@@ -460,7 +460,21 @@ function App() {
                 <AiFillCloseSquare /> Close
               </Button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Button variant="primary" className="button_style" onClick={() => {updateBook(InputList.inputBID,InputList.inputISBN)}}>
+              <Button variant="primary" className="button_style"
+                onClick={() => {
+                  updateBook(
+                    InputList.inputBID,
+                    InputList.inputISBN,
+                    InputList.inputBookTitle,
+                    InputList.inputAuthor,
+                    InputList.inputPublishDate,
+                    InputList.inputAddingDate,
+                    InputList.inputPages,
+                    InputList.inputPrice,
+                    InputList.inputSource,
+                    InputList.inputRemarks
+                  )
+                }}>
                 <GiSave /> Save Changes
               </Button>
             </Modal.Footer>
