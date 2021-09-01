@@ -82,7 +82,7 @@ function App() {
   };
 
   //update book details function
-  /*const updateBook =  () => {
+  const updateBook =  () => {
     Axios.update("http://localhost:3002/api/update",{
       updatebookid: txt_updatebookid,
       updateisbnno: txt_updateisbnno,
@@ -98,7 +98,7 @@ function App() {
     alert("Successfully updated..!");
     window.location.reload(true);
   };
-*/
+
   //Modal showing function
   const [show, setShow] = useState(false);
   //modal setinput data list
