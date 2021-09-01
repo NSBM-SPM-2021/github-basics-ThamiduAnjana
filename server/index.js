@@ -61,57 +61,10 @@ app.put("/api/update",(req,res) => {
     const updateprice = req.body.updateprice;
     const updatesource = req.body.updatesource;
     const updateremarks = req.body.updateremarks;
-    //sql string variables
-    var sql_isbnno = "";
-    var sql_booktitle = "";
-    var sql_author = "";
-    var sql_publishdate = "";
-    var sql_addingdate = "";
-    var sql_pages = "";
-    var sql_price = "";
-    var sql_source = "";
-    var sql_remarks = "";
-    //input validations
-    if(updateisbnno){
-        //not empty value
-        sql_isbnno = "ISBN_NO = '" + updateisbnno +"'";
-    }
-    if(updatebooktitle){
-        //not empty value
-        sql_booktitle = "Book_Title = '" + updateisbnno +"'";
-    }
-    if(updateauthor){
-        //not empty value
-        sql_author = "Author = '" + updateauthor +"'";
-    }
-    if(updatepublishdate){
-        //not empty value
-        sql_publishdate = "Publish_Date = '" + updatepublishdate +"'";
-    }
-    if(updateaddingdate){
-        //not empty value
-        sql_addingdate = "Adding_Date = '" + updateaddingdate +"'";
-    }
-    if(updatepages){
-        //not empty value
-        sql_pages = "Pages = '" + updatepages +"'";
-    }
-    if(updateprice){
-        //not empty value
-        sql_price = "Price = '" + updateprice +"'";
-    }
-    if(updatesource){
-        //not empty value
-        sql_source = "Source = '" + updatesource +"'";
-    }
-    if(updateremarks){
-        //not empty value
-        sql_remarks = "Remarks = '" + updateremarks +"'";
-    }
 
-    var sqlUpdate = "UPDATE LOW_PRIORITY IGNORE books_tb SET "+ sql_isbnno + sql_booktitle + sql_author + sql_publishdate + sql_addingdate + sql_pages + sql_price + sql_source + sql_remarks +" WHERE Book_ID = ?";
+    var sqlUpdate = "UPDATE LOW_PRIORITY IGNORE books_tb SET ISBN_NO = ?, Book_Title = ?, Author = ?, Publish_Date = ?, Adding_Date = ?, Pages = ?, Price = ?, Source = ?, Remarks = ? WHERE Book_ID = ?";
     console.log(sqlUpdate);
-    db.query(sqlUpdate,[updatebookid],(err, result) => {
+    db.query(sqlUpdate,[updateisbnno,updatebooktitle,updateauthor,updatepublishdate,updateaddingdate,updatepages,updateprice,updatesource,updateremarks,updatebookid],(err, result) => {
         if (err) console.log(err);
         console.log(result);
     });
