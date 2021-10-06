@@ -149,7 +149,7 @@ function App() {
                     <Col>
                       <Form.Group controlId="bookid">
                         <Form.Label>Book ID :</Form.Label>
-                        <Form.Control type="text" name="txt_bookid" placeholder="Enter Book ID"
+                        <Form.Control type="number" name="txt_bookid" data-testid="txt_bookid" placeholder="Enter Book ID"
                           onChange={(e) => {
                             setbookid(e.target.value)
                           }}>
@@ -159,7 +159,7 @@ function App() {
                     <Col>
                       <Form.Group controlId="isbnno">
                         <Form.Label>ISBN NO :</Form.Label>
-                        <Form.Control type="text" name="txt_isbnno" placeholder="Enter ISBN NO"
+                        <Form.Control type="text" name="txt_isbnno" data-testid="txt_isbnno" placeholder="Enter ISBN NO"
                           onChange={(e) => {
                             setisbnno(e.target.value)
                           }}>
@@ -193,7 +193,7 @@ function App() {
                     <Col>
                       <Form.Group controlId="publishdate">
                         <Form.Label>Publish Date :</Form.Label>
-                        <Form.Control type="date" name="txt_publishdate" placeholder="Enter Publish Date"
+                        <Form.Control type="date" name="txt_publishdate" data-testid="txt_publishdate" placeholder="Enter Publish Date"
                           onChange={(e) => {
                             setpublishdate(e.target.value)
                           }}>
