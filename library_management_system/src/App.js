@@ -50,14 +50,14 @@ function App() {
 
   //setbooklist function
   useEffect(() => {
-    Axios.get("https://localhost:3002/api/get").then((response) => {//https://spm-library-management-system.herokuapp.com/api/get
+    Axios.get("http://localhost:3002/api/get").then((response) => {//https://spm-library-management-system.herokuapp.com/api/get
       setBookList(response.data);
     });
   }, []);
 
   //insert book details function
   const submitBook = () => {
-    Axios.post("https://localhost:3002/api/insert", {//https://spm-library-management-system.herokuapp.com
+    Axios.post("http://localhost:3002/api/insert", {//https://spm-library-management-system.herokuapp.com
       bookid: txt_bookid,
       isbnno: txt_isbnno,
       booktitle: txt_booktitle,
@@ -75,14 +75,14 @@ function App() {
 
   //delete book details function
   const deleteBook = (deletebookid) => {
-    Axios.delete(`https://localhost:3002/api/delete/${deletebookid}`);//https://spm-library-management-system.herokuapp.com
+    Axios.delete(`http://localhost:3002//api/delete/${deletebookid}`);//https://spm-library-management-system.herokuapp.com
     alert("Successfully Deleted..!");
     window.location.reload(true);
   };
 
   //update book details function
   const updateBook = (Pupdatebookid, Pupdateisbnno,Pupdatebooktitle,Pupdateauthor,Pupdatepublishdate,Pupdateaddingdate,Pupdatepages,Pupdateprice,Pupdatesource,Pupdateremarks) => {
-    Axios.put("https://localhost:3002/api/update", {//https://spm-library-management-system.herokuapp.com
+    Axios.put("http://localhost:3002/api/update", {//https://spm-library-management-system.herokuapp.com
       updatebookid: Pupdatebookid,
       updateisbnno: (txt_updateisbnno ? txt_updateisbnno : Pupdateisbnno),
       updatebooktitle: (txt_updatebooktitle ? txt_updatebooktitle : Pupdatebooktitle),
