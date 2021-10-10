@@ -3,13 +3,26 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql");
+
+// const PORT = 3001;
+
 //Database Connection
 const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
     database: "spm_librarymanagementsystem"
+    // host: "us-cdbr-east-04.cleardb.com",
+    // user: "b20487d51a8199",
+    // password: "02f25e0e",
+    // database: "heroku_98b0e05be8e60ee"
 });
+//mysql://b20487d51a8199:02f25e0e@us-cdbr-east-04.cleardb.com/heroku_98b0e05be8e60ee?reconnect=true
+
+    // host: "localhost",
+    // user: "root",
+    // password: "",
+    // database: "spm_librarymanagementsystem"
 
 app.use(cors());
 app.use(express.json());
@@ -69,7 +82,14 @@ app.put("/api/update",(req,res) => {
         console.log(result);
     });
 });
+
+
 //Server
 app.listen(3002, () => {
     console.log("running on port 3002");
 });
+
+//Server
+// app.listen(process.env.PORT || PORT, () => {
+//     console.log(`running on port ${PORT}`);
+// });
